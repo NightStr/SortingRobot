@@ -29,9 +29,8 @@ function getAll()
                 if innerItem == nil then
                     component.inventory_controller.suckFromSlot(sides.forward, externalCellIndex)
                     local slotAvaible = innerItem["maxSize"] - innerItem["size"]
-                    elseif innerItem["name"] == externalStoredItem["name"] and slotAvaible > 0 then
-                        component.inventory_controller.suckFromSlot(sides.forward, externalCellIndex, slotAvaible)
-                    end
+                elseif innerItem["name"] == externalStoredItem["name"] and slotAvaible > 0 then
+                    component.inventory_controller.suckFromSlot(sides.forward, externalCellIndex, slotAvaible)
                 end
             end
         end
