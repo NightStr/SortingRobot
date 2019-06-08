@@ -32,11 +32,10 @@ function getAll()
                 end
             end
         end
-        if externalCellIndex == component.inventory_controller.getStackInSlot(sides.forward, ei) then
+        if externalCellIndex ==  component.inventory_controller.getInventorySize(sides.forward) then
             break
         end
     end 
 end
 
 getAll()
-
