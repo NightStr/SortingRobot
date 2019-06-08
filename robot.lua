@@ -25,6 +25,7 @@ function getAll()
         for externalCellIndex=1, component.inventory_controller.getInventorySize(sides.forward) do
             externalStoredItem = component.inventory_controller.getStackInSlot(sides.forward, externalCellIndex)
             if not(externalStoredItem == nil) then
+                print(i)
                 if innerItem == nil or innerItem["name"] == externalStoredItem["name"] then
                     component.inventory_controller.suckFromSlot(sides.forward, externalCellIndex)
                 end
