@@ -21,20 +21,17 @@ function getAll()
     local externalCellIndex = 1
     for i=1, 16 do
         innerItem = component.inventory_controller.getStackInInternalSlot(i)
-        if innerItem == nil then
-            robot.select(i)
-            for ei=externalCellIndex, component.inventory_controller.getInventorySize(sides.forward) do
-                externalStoredItem = component.inventory_controller.getStackInSlot(sides.forward, ei)
-                if not(externalStoredItem == nil) then
-                    component.inventory_controller.suckFromSlot(sides.forward, ei)
-                    externalCellIndex = ei
-                    break
+        robot.select(i)
+        for externalCellIndex=1, component.inventory_controller.getInventorySize(sides.forward) do
+            externalStoredItem = component.inventory_controller.getStackInSlot(sides.forward, ei)
+            if not(externalStoredItem == nil then
+                if innerItem == nil:
+                    component.inventory_controller.suckFromSlot(sides.forward, externalCellIndex)
+                else if innerItem["name"] == externalStoredItem["name"] then
+                    component.inventory_controller.suckFromSlot(sides.forward, externalCellIndex)
                 end
             end
         end
-        -- if externalCellIndex ==  component.inventory_controller.getInventorySize(sides.forward) then
-        --     break
-        -- end
     end 
 end
 
